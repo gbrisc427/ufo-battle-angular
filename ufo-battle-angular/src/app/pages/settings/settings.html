@@ -1,1 +1,36 @@
-<p>settings works!</p>
+<main class="container container-card mt-5 centrate">
+  <h1 class="text-center mb-4 glow">AJUSTES DEL JUEGO</h1>
+
+  <form id="preferences-form" class="mx-auto">
+
+    <div class="mb-4">
+      <label for="nUfos" class="form-label">NÚMERO DE UFOS</label>
+      <select id="nUfos" class="form-select">
+        <option value="1">1</option>
+        <option value="5" selected>5</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="time" class="form-label">TIEMPO DE JUEGO (SEGUNDOS)</label>
+      <select id="time" class="form-select">
+        <option value="60" selected>60</option>
+        <option value="120">120</option>
+        <option value="180">180</option>
+      </select>
+    </div>
+
+    <div class="form-check mb-4">
+      <input type="checkbox" id="doubleSpeed" class="form-check-input">
+      <label for="doubleSpeed" class="form-check-label">ACTIVAR DOBLE VELOCIDAD</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success btn-lg">GUARDAR AJUSTES</button>
+    </div>
+  </form>
+</main>
+<div id="save-message" class="text-center mt-4" style="display:none;">
+  <p class="ajustes-guardados glow"> AJUSTES GUARDADOS CORRECTAMENTE</p>
+</div>
