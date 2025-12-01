@@ -1,1 +1,467 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #0c0016;
+  color: #e0d8ff;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+.body-home {
+  height: max-content;
+  width: 100%;
+  position: fixed;
+}
+/* MENÚ */
+
+.navbar {
+  background: linear-gradient(90deg, #1a0033, #3a0066);
+  border-bottom: 2px solid #8a2be2;
+  box-shadow: 0 0 15px #8a2be2aa;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: #ff00ff !important;
+  text-shadow: 0 0 8px #ff00ff88;
+}
+
+.nav-link {
+  color: #c9bdf5 !important;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px #8a2be2;
+}
+
+/* BOTONES */
+
+.btn {
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #8a2be2, #ff00ff);
+  box-shadow: 0 0 10px #8a2be288;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #ff00ff, #8a2be2);
+  box-shadow: 0 0 20px #ff00ffaa;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #00ffcc, #009999);
+  color: #0c0016;
+}
+
+.btn-success:hover {
+  box-shadow: 0 0 20px #00ffccaa;
+}
+
+.btn-img{
+  background-color: transparent;
+}
+
+.btn-img:hover{
+  background-color: transparent;
+}
+
+/* TEXTOS Y TÍTULOS */
+
+h1, h2, h3 {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff99;
+  margin-bottom: 1rem;
+}
+
+p.lead {
+  color: #a092c4;
+  font-weight: 500;
+}
+
+.txt-home{
+  margin: 2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.ajustes-guardados {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #c285ff;
+}
+
+/* COLUMNAS */
+
+.two-columns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.column {
+  flex: 1;
+  vertical-align: middle;
+}
+
+
+.centrate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* ENLACES */
+
+a {
+  color: #8a2be2;
+  text-decoration: none;
+}
+
+.a-play{
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: rgb(243, 184, 255);
+}
+
+a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 6px #ff00ff66;
+}
+
+hr {
+  border-color: #8a2be2;
+  opacity: 0.5;
+}
+
+/* FORMULARIOS */
+
+main.container-card {
+  background: linear-gradient(145deg, #1a0033, #0c0016);
+  border: 2px solid #3a0066;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #3a006688;
+  padding: 3rem 2rem;
+  max-width: 600px;
+}
+
+.form-label {
+  color: #c9bdf5;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.form-select, .form-check-input {
+  background-color: #120028;
+  color: #e6dbff;
+  border: 1px solid #8a2be2;
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.form-select:focus, .form-check-input:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff88;
+}
+
+.form-check-label {
+  color: #c9bdf5;
+  font-weight: 500;
+}
+
+.login-form .form-control {
+  background-color: #120028;
+  border: 1px solid #8a2be2;
+  color: #e6dbff;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-form .form-control:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff99;
+}
+
+.register-container {
+  padding: 3rem 2rem;
+  max-height: 40vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8a2be2 #1a0033;
+}
+
+.register-container::-webkit-scrollbar {
+  width: 8px;
+}
+.register-container::-webkit-scrollbar-track {
+  background: #1a0033;
+  border-radius: 8px;
+}
+.register-container::-webkit-scrollbar-thumb {
+  background: #8a2be2;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ff00ff;
+}
+.register-container::-webkit-scrollbar-thumb:hover {
+  background: #ff00ff;
+}
+
+.register-form .form-control {
+  background-color: #120028;
+  border: 1px solid #8a2be2;
+  color: #e6dbff;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.register-form .form-control:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff99;
+}
+
+/* RANKINGS */
+
+.records-table-container {
+  max-width: 900px;
+  background: linear-gradient(145deg, #1a0033, #0c0016);
+  box-shadow: 0 0 30px #3a006688;
+}
+
+.records-table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #e6dbff;
+  background-color: rgba(20, 0, 40, 0.8);
+  text-transform: uppercase;
+}
+
+.records-table th {
+  background: linear-gradient(90deg, #3a0066, #8a2be2);
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 8px #ff00ff;
+  letter-spacing: 1px;
+}
+
+.records-table td {
+  color: #c9bdf5;
+  font-weight: 500;
+}
+
+.records-table tr:nth-child(odd) {
+  background-color: rgba(58, 0, 102, 0.3);
+}
+
+.records-table tr:hover {
+  background-color: rgba(255, 0, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.records-table-container {
+  padding: 3rem 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8a2be2 #1a0033;
+}
+
+.records-table-container::-webkit-scrollbar {
+  width: 8px;
+}
+.records-table-container::-webkit-scrollbar-track {
+  background: #1a0033;
+  border-radius: 8px;
+}
+.records-table-container::-webkit-scrollbar-thumb {
+  background: #8a2be2;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ff00ff;
+}
+.records-table-container::-webkit-scrollbar-thumb:hover {
+  background: #ff00ff;
+}
+
+
+#no-records {
+  color: #c9bdf5;
+  text-shadow: 0 0 12px #8a2be2;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* JUEGO */
+
+.canva-game {
+  background-image: url('../imgs/fondo_2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+#missile {
+  position: absolute;
+  z-index: 1;
+}
+#ufo {
+  position: absolute;
+  z-index: 1;
+}
+#points {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ff00ff;
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #8a2be2,
+    0 0 40px #8a2be2;
+  background: rgba(20, 0, 40, 0.6);
+  border: 2px solid #8a2be2;
+  border-radius: 12px;
+  padding: 0.5rem 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px #8a2be266;
+  display: inline-block;
+  user-select: none;
+  transition: transform 0.15s ease;
+}
+
+#points.updated {
+  transform: scale(1.2);
+  transition: transform 0.15s ease;
+}
+
+.points-container {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.points-txt {
+  font-size: 1rem;
+  color: #8a2be2;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 5px #8a2be2,
+    0 0 10px #ff00ff;
+}
+
+#timePlay {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
+  background: rgba(20, 0, 40, 0.6);
+  border: 2px solid #00bcd4;
+  border-radius: 12px;
+  padding: 0.5rem 1.5rem;
+  margin-left: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px #00bcd466;
+  display: inline-block;
+  user-select: none;
+}
+
+/* PANEL FINAL DEL JUEGO */
+
+.end-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 0, 22, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+.end-panel-content {
+  background: linear-gradient(145deg, #1a0033, #3a0066);
+  border: 2px solid #8a2be2;
+  box-shadow: 0 0 25px #ff00ff88;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  max-width: 450px;
+  color: #e0d8ff;
+  text-transform: uppercase;
+}
+
+.end-panel-content h2 {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff88;
+  margin-bottom: 1.5rem;
+}
+
+.end-panel-content p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.end-panel.hidden {
+  display: none;
+}
+
+/* ANIMACIÓN NEÓN */
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #ff00ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #8a2be2;
+  }
+}
+
+.glow {
+  animation: neonGlow 2s infinite alternate;
+}
