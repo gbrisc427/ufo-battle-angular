@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { PlayComponent } from './pages/play/play.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { RankingsComponent } from './pages/rankings/rankings.component';
+import { Home } from './pages/home/home';
+import { Play } from './pages/play/play';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
+import { Settings } from './pages/settings/settings';
+import { Rankings } from './pages/rankings/rankings';
 
 export const routes: Routes = [
-{ path: '', component: HomeComponent },
-{ path: 'play', component: PlayComponent },
-{ path: 'login', component: LoginComponent },
-{ path: 'register', component: RegisterComponent },
-{ path: 'settings', component: SettingsComponent },
-{ path: 'rankings', component: RankingsComponent },
+{ path: '', component: Home },
+{ path: 'play', component: Play },
+{ path: 'login', component: Login },
+{ path: 'register', component: Register },
+{ path: 'settings', component: Settings },
+{ path: 'rankings', component: Rankings },
 { path: '**', redirectTo: '' }
 ];
