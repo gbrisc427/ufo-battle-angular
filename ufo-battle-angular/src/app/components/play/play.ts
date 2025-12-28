@@ -54,10 +54,12 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
   }
 
   ngAfterViewInit() {
+    document.body.classList.add('canva-game');
     setTimeout(() => this.startGame(), 0);
   }
 
   ngOnDestroy() {
+    document.body.classList.remove('canva-game');
     this.cleanUp();
   }
 
