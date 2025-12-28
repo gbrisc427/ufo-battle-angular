@@ -1,21 +1,25 @@
 <main class="container container-card mt-5 text-center centrate">
   <h1 class="glow mb-4">INICIAR SESIÓN</h1>
 
-  <form id="login-form" class="login-form mx-auto">
+  <form (ngSubmit)="onLogin()" class="login-form mx-auto">
     <div class="mb-4">
       <label for="username" class="form-label">USUARIO</label>
-      <input type="text" id="username" class="form-control" placeholder="Tu nombre" required>
+      <input type="text" id="username" name="username" [(ngModel)]="username" class="form-control" placeholder="Tu nombre" required>
     </div>
 
     <div class="mb-4">
       <label for="password" class="form-label">CONTRASEÑA</label>
-      <input type="password" id="password" class="form-control" placeholder="********" required>
+      <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" placeholder="********" required>
     </div>
 
     <div class="text-center mb-3">
       <button type="submit" class="btn btn-success btn-lg">ENTRAR</button>
     </div>
-
   </form>
-  <p id="login-message" class="mt-3" style="display:none;"></p>
+
+  <p *ngIf="message" class="mt-3"
+     [style.color]="isError ? '#ff0066' : '#00ffcc'"
+     [style.textShadow]="isError ? '0 0 8px #ff0066' : '0 0 8px #00ffcc'">
+    {{ message }}
+  </p>
 </main>
