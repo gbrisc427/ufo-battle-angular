@@ -92,7 +92,7 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
 
     for (let i = 0; i < count; i++) {
       const ufoEl = document.createElement('img');
-      ufoEl.src = 'assets/imgs/ufo.png';
+      ufoEl.src = 'imgs/ufo.png';
       ufoEl.classList.add('ufo');
       ufoEl.style.position = 'absolute';
       ufoEl.style.width = '60px';
@@ -137,7 +137,7 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
   }
 
   handleUfoHit(ufo: UFO) {
-    ufo.element.src = 'assets/imgs/explosion.gif';
+    ufo.element.src = 'imgs/explosion.gif';
 
     setTimeout(() => {
       if (ufo.element.parentNode) {
@@ -202,17 +202,14 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
 
         this.api.saveScore(recordData, token).subscribe({
             next: () => {
-                // Mensaje de éxito en verde
                 this.showMessage('¡Puntuación guardada correctamente!', false);
 
-                // Redirigir tras 2 segundos
                 setTimeout(() => {
                     this.router.navigate(['/rankings']);
                 }, 2000);
             },
             error: (err: any) => {
                 console.error(err);
-                // Mensaje de error en rosa/rojo
                 this.showMessage('Error al guardar: ' + (err.statusText || 'Error desconocido'), true);
             }
         });

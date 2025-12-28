@@ -1,7 +1,9 @@
 <main class="container mt-5 text-center">
   <h1 class="glow mb-4">RANKING DE PUNTUACIONES</h1>
 
-  <div class="records-table-container mx-auto">
+  <div class="records-table-container mx-auto mb-5">
+    <h3 class="mb-3" style="color: #00ffcc;">TOP 10 GLOBAL</h3>
+
     <table class="table table-dark table-striped table-bordered align-middle records-table">
       <thead>
       <tr>
@@ -13,12 +15,19 @@
         <th>Fecha</th>
       </tr>
       </thead>
-      <tbody id="records-body">
+      <tbody>
+      <tr *ngFor="let record of globalRecords; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ record.username }}</td>
+        <td>{{ record.punctuation }}</td>
+        <td>{{ record.ufos }}</td>
+        <td>{{ record.disposedTime }}</td>
+        <td>{{ record.recordDate | date:'dd/MM/yyyy' }}</td>
+      </tr>
       </tbody>
     </table>
+
+    <p *ngIf="globalRecords.length === 0" class="mt-4">Cargando puntuaciones...</p>
   </div>
 
-
-  <p id="no-records" class="mt-4" style="display:none;">No hay puntuaciones registradas todavía.</p>
 </main>
-

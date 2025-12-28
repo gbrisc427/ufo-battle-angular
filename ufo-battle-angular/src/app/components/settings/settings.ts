@@ -31,7 +31,6 @@ constructor(private router: Router, private cdr: ChangeDetectorRef) {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('ufo_num', this.nUfos);
       localStorage.setItem('gameTime', this.time);
-      // Guardamos como string 'true'/'false' para ser consistentes con tu lógica anterior
       localStorage.setItem('doubleSpeedK', String(this.doubleSpeed));
 
       this.showMessage();
@@ -45,8 +44,7 @@ constructor(private router: Router, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.message = '';
       this.cdr.detectChanges();
-      // Opcional: Redirigir al juego o home tras guardar
-      // this.router.navigate(['/play']);
+      this.router.navigate(['/play']);
     }, 1500);
   }
 }
