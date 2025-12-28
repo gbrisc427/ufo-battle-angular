@@ -203,7 +203,14 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
         };
 
         this.api.saveScore(recordData, token).subscribe({
-            next: () => {
+            next: (response: any) => {
+                const newToken = response.headers ? response.headers.get('Authorization') : null;
+
+                if (newToken) {
+                    console.log('Token renovado correctamente');
+                    this.api.setToken(newToken);
+                }
+
                 this.showMessage('¡Puntuación guardada correctamente!', false);
 
                 setTimeout(() => {

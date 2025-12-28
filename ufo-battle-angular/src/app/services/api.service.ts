@@ -62,6 +62,6 @@ constructor(private http: HttpClient) { }
 
   saveScore(scoreData: any, token: string) {
     const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.post(`${this.baseUrl}/records`, scoreData, { headers });
+    return this.http.post(`${this.baseUrl}/records`, scoreData, { headers, observe: 'response' });
   }
 }
