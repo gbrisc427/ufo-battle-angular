@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -7,6 +7,8 @@ providedIn: 'root'
 })
 export class ApiService {
 private baseUrl = 'http://wd.etsisi.upm.es:10000';
+
+isLoggedIn = signal<boolean>(this.hasToken());
 
 constructor(private http: HttpClient) { }
 
@@ -30,9 +32,17 @@ constructor(private http: HttpClient) { }
     return this.http.get<any[]>(`${this.baseUrl}/records`);
   }
 
+  private hasToken(): boolean {
+      if (typeof localStorage !== 'undefined') {
+        return !!localStorage.getItem('auth_token');
+      }
+      return false;
+    }
+
   setToken(token: string) {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('auth_token', token);
+      this.isLoggedIn.set(true);
     }
   }
 
@@ -46,6 +56,12 @@ constructor(private http: HttpClient) { }
   logout() {
     if (typeof localStorage !== 'undefined') {
       localStorage.removeItem('auth_token');
+      this.isLoggedIn.set(false);
     }
+  }
+
+  saveScore(scoreData: any, token: string) {
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.post(`${this.baseUrl}/records`, scoreData, { headers });
   }
 }

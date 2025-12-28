@@ -1,19 +1,35 @@
 <main class="container text-center mt-5">
-  <img id='missile' src='assets/imgs/missile.png' STYLE="left:300px; bottom:10px; height:90px; width:50px" />
-  <div id="container">
-  </div>
-  <div class="points-container glow">
-    <span class="points-txt glow">PUNTOS:   </span>
-    <div id="points">0</div><br><br>
-    <span class="points-txt">TIEMPO:</span>
-    <div id="timePlay">60 (s)</div>
+
+  <img #missile id='missile' src='assets/imgs/missile.png' style="left:300px; bottom:10px; height:90px; width:50px" />
+
+  <div #container id="container">
   </div>
 
-  <div id="endPanel" class="end-panel hidden">
+  <div class="points-container glow">
+    <span class="points-txt glow">PUNTOS: </span>
+    <div id="points">{{ score }}</div><br><br>
+    <span class="points-txt">TIEMPO:</span>
+    <div id="timePlay">{{ timeLeft }} (s)</div>
+  </div>
+
+  <div id="endPanel" class="end-panel" *ngIf="showEndPanel">
     <div class="end-panel-content">
-      <h2> Tiempo Agotado</h2><br>
-      <p id="finalScoreText">Tu puntuación final es: <span id="finalScoreValue">0</span></p><br>
-      <button id="returnMenuBtn" class="btn btn-primary">Volver al Menú</button>
+      <h2>Tiempo Agotado</h2><br>
+      <p id="finalScoreText">Tu puntuación final es: <span id="finalScoreValue">{{ finalScore }}</span></p><br>
+
+      <div class="d-flex gap-2 justify-content-center">
+        <button (click)="returnMenu()" class="btn btn-primary">Volver al Menú</button>
+
+        <button *ngIf="api.isLoggedIn()" (click)="saveScore()" class="btn btn-success">Guardar Puntuación</button>
+      </div>
+
+      <p *ngIf="message" class="mt-3"
+         style="font-weight: bold; font-size: 1.1rem;"
+         [style.color]="isError ? '#ff0066' : '#00ffcc'"
+         [style.textShadow]="isError ? '0 0 8px #ff0066' : '0 0 8px #00ffcc'">
+        {{ message }}
+      </p>
+
     </div>
   </div>
 </main>
