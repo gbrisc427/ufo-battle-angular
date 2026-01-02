@@ -1,33 +1,68 @@
 <main class="container mt-5 text-center">
   <h1 class="glow mb-4">RANKING DE PUNTUACIONES</h1>
 
-  <div class="records-table-container mx-auto mb-5">
-    <h3 class="mb-3" style="color: #00ffcc;">TOP 10 GLOBAL</h3>
+  <div class="row justify-content-center">
 
-    <table class="table table-dark table-striped table-bordered align-middle records-table">
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Usuario</th>
-        <th>Puntuación</th>
-        <th>UFOs</th>
-        <th>Tiempo (s)</th>
-        <th>Fecha</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let record of globalRecords; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ record.username }}</td>
-        <td>{{ record.punctuation }}</td>
-        <td>{{ record.ufos }}</td>
-        <td>{{ record.disposedTime }}</td>
-        <td>{{ record.recordDate | date:'dd/MM/yyyy' }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div [ngClass]="api.isLoggedIn() ? 'col-md-6' : 'col-md-8'">
+      <div class="records-table-container mx-auto mb-4">
+        <h3 class="mb-3" style="color: #00ffcc; text-shadow: 0 0 10px #00ffcc;">TOP 10 GLOBAL</h3>
 
-    <p *ngIf="globalRecords.length === 0" class="mt-4">Cargando puntuaciones...</p>
+        <table class="table table-dark table-striped table-bordered align-middle records-table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Usuario</th>
+            <th>Puntos</th>
+            <th>UFOs</th>
+            <th>Tiempo</th>
+            <th>Fecha</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let record of globalRecords; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ record.username }}</td>
+            <td class="text-warning fw-bold">{{ record.punctuation }}</td>
+            <td>{{ record.ufos }}</td>
+            <td>{{ record.disposedTime }}s</td>
+            <td>{{ record.recordDate | date:'dd/MM/yy' }}</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <p *ngIf="globalRecords.length === 0" class="mt-4">Cargando puntuaciones globales...</p>
+      </div>
+    </div>
+
+    <div class="col-md-6" *ngIf="api.isLoggedIn()">
+      <div class="records-table-container mx-auto mb-4" style="border-color: #ff00ff;">
+        <h3 class="mb-3" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;">MIS PUNTUACIONES</h3>
+
+        <table class="table table-dark table-striped table-bordered align-middle records-table">
+          <thead>
+          <tr>
+            <th style="background: linear-gradient(90deg, #ff00ff, #8a2be2);">#</th>
+            <th style="background: linear-gradient(90deg, #ff00ff, #8a2be2);">Puntos</th>
+            <th style="background: linear-gradient(90deg, #ff00ff, #8a2be2);">UFOs</th>
+            <th style="background: linear-gradient(90deg, #ff00ff, #8a2be2);">Tiempo</th>
+            <th style="background: linear-gradient(90deg, #ff00ff, #8a2be2);">Fecha</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let record of personalRecords; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="text-info fw-bold">{{ record.punctuation }}</td>
+            <td>{{ record.ufos }}</td>
+            <td>{{ record.disposedTime }}s</td>
+            <td>{{ record.recordDate | date:'dd/MM/yy' }}</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <p *ngIf="personalRecords.length === 0" class="mt-4">No tienes puntuaciones registradas.</p>
+        <p *ngIf="personalRecords.length === 0" class="small text-muted">(Juega una partida y guarda tu récord para verlo aquí)</p>
+      </div>
+    </div>
+
   </div>
-
 </main>

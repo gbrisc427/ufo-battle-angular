@@ -161,11 +161,6 @@ constructor(public api: ApiService, private router: Router, private cdr: ChangeD
 
       if (remaining === 0 && this.timeLeft > 0) {
         this.createUfos(this.numUfos);
-        if(!this.doubleSpeed) {
-             this.ufos.forEach((newUfo) => newUfo.setSpeedMultiplier(1));
-        } else {
-             this.ufos.forEach((newUfo) => newUfo.setSpeedMultiplier(2));
-        }
       }
     }, 800);
 

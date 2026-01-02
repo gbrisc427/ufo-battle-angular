@@ -31,6 +31,9 @@ export class Login {
 
         if (token) {
           this.api.setToken(token);
+          if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('currentUser', this.username);
+            }
           this.showMessage('Sesión iniciada con éxito', false);
           setTimeout(() => this.router.navigate(['/']), 1500);
         } else {

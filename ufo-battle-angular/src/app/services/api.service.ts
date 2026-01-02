@@ -7,6 +7,7 @@ providedIn: 'root'
 })
 export class ApiService {
 private baseUrl = 'http://wd.etsisi.upm.es:10000';
+private localUrl = 'http://localhost:3000';
 
 isLoggedIn = signal<boolean>(this.hasToken());
 
@@ -31,6 +32,10 @@ constructor(private http: HttpClient) { }
   getGlobalRecords() {
     return this.http.get<any[]>(`${this.baseUrl}/records`);
   }
+
+  getUserRecords(username: string) {
+      return this.http.get(`${this.localUrl}/records/${username}`);
+    }
 
   private hasToken(): boolean {
       if (typeof localStorage !== 'undefined') {
