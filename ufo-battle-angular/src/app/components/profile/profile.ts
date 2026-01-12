@@ -51,6 +51,7 @@ export class Profile {
     console.log(this.api.getToken())
     console.log(this.username)
 
+
     this.api.changePassword(this.newpassw, this.api.getToken() || "", this.username|| "").subscribe({
       next: (response) => {
         this.showMessage('Password cambiada con éxito', false);
@@ -61,6 +62,22 @@ export class Profile {
         this.showMessage('error', true);
       }
     });
+
+
+    /* PARA EL LADO SERVIDOR
+
+    this.api.changePasswordlocalServer(this.newpassw, this.api.getToken() || "", this.username|| "").subscribe({
+      next: (response) => {
+        this.showMessage('Password cambiada con éxito', false);
+        setTimeout(() => this.router.navigate(['/']), 1500);
+      },
+      error: (err) => {
+        console.error(err);
+        this.showMessage('error', true);
+      }
+    });
+
+     */
   }
 
   showMessage(msg: string, error: boolean) {

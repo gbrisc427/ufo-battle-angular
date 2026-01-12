@@ -8,6 +8,7 @@ providedIn: 'root'
 export class ApiService {
 private baseUrl = 'http://wd.etsisi.upm.es:10000';
 private localUrl = 'http://localhost:3000';
+private examUrl = 'http://localhost:1194';
 
 isLoggedIn = signal<boolean>(this.hasToken());
 
@@ -73,5 +74,10 @@ constructor(private http: HttpClient) { }
   changePassword(newpassword: any, token: string, username: string){
     const headers = new HttpHeaders().set('Authorization', token);
     return this.http.patch(`${this.baseUrl}/users/${username}`, {password: newpassword}, {headers, observe: 'response'});
+  }
+
+  changePasswordlocalServer(newpassword: any, token: string, username: string){
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.patch(`${this.examUrl}/users/${username}`, {password: newpassword}, {headers, observe: 'response'});
   }
 }
