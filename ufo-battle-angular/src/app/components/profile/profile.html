@@ -1,0 +1,26 @@
+<main class="container container-card mt-5 text-center centrate">
+  <h1 class="glow mb-4">PASSWORD CHANGE</h1>
+
+  <form (ngSubmit)="onChange()" class="login-form mx-auto">
+    <div class="mb-4">
+      <label for="username" class="form-label">PASSWORD</label>
+      <input type="password" id="newpassw" name="newpassw"  [(ngModel)]="newpassw" class="form-control" placeholder="New Password" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="form-label">REPEAT NEW PASSWORD</label>
+      <input type="password" id="newpasswrepeat" name="newpasswrepeat" [(ngModel)]="newpasswrepeat" class="form-control" placeholder="Repeat it" required>
+    </div>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-success btn-lg">CHANGE</button>
+    </div>
+  </form>
+
+  <p *ngIf="message" class="mt-3"
+     [style.color]="isError ? '#ff0066' : '#00ffcc'"
+     [style.textShadow]="isError ? '0 0 8px #ff0066' : '0 0 8px #00ffcc'">
+    {{ message }}
+  </p>
+</main>
+

@@ -69,4 +69,9 @@ constructor(private http: HttpClient) { }
     const headers = new HttpHeaders().set('Authorization', token);
     return this.http.post(`${this.baseUrl}/records`, scoreData, { headers, observe: 'response' });
   }
+
+  changePassword(newpassword: any, token: string, username: string){
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.patch(`${this.baseUrl}/users/${username}`, {password: newpassword}, {headers, observe: 'response'});
+  }
 }

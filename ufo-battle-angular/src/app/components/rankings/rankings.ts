@@ -11,7 +11,7 @@ styleUrl: './rankings.scss',
 })
 export class Rankings implements OnInit {
 globalRecords: any[] = [];
-personalRecords: any[] = []; // Para el futuro backend
+personalRecords: any[] = [];
 username: string | null = null;
 
 constructor(public api: ApiService, private cdr: ChangeDetectorRef) {}

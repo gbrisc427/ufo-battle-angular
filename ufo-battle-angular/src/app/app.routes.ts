@@ -5,6 +5,8 @@ import { Login } from './components/login/login';
 import { Register } from './components/register/register';
 import { Settings } from './components/settings/settings';
 import { Rankings } from './components/rankings/rankings';
+import { Profile } from './components/profile/profile';
+
 
 export const routes: Routes = [
 { path: '', component: Home },
@@ -13,5 +15,6 @@ export const routes: Routes = [
 { path: 'register', component: Register },
 { path: 'settings', component: Settings },
 { path: 'rankings', component: Rankings },
+{ path: 'profile', component: Profile },
 { path: '**', redirectTo: '' }
 ];
